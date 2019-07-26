@@ -1,0 +1,27 @@
+<template>
+    <i-tab-bar current="{{ current }}" bindchange="handleChange">
+        <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage_fill" title="Home"></i-tab-bar-item>
+        <i-tab-bar-item key="group" icon="group" current-icon="group_fill" title="Friends"></i-tab-bar-item>
+        <i-tab-bar-item key="remind" icon="remind" current-icon="remind_fill" count="3" title="Notice"></i-tab-bar-item>
+        <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" dot title="My"></i-tab-bar-item>
+   </i-tab-bar>
+</template>
+
+<script>
+    import wepy from '@wepy/core'
+    wepy.page({
+        data: {
+            current: 'homepage'
+        }
+    });
+</script>
+
+<config>
+{
+    navigationBarTitleText: 'welcome to mousewatch home',
+    usingComponents: {
+        "i-tab-bar": "../components/iview-weapp/tab-bar/index",
+        "i-tab-bar-item": "../components/iview-weapp/tab-bar-item/index"
+    }
+}
+</config>

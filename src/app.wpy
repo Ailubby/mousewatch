@@ -58,7 +58,7 @@ wepy.app({
 <config>
 {
     pages: [
-      'pages/index'
+      'pages/home'
     ],
     window: {
       backgroundTextStyle: 'light',
