@@ -1,0 +1,67 @@
+<template>
+    <i-tabs current="{{ tabs }}" bindchange="handleChange">
+        <i-tab key="USA" title="美股"></i-tab>
+        <i-tab key="HK" title="港股"></i-tab>
+    </i-tabs>
+    <i-grid>
+        <i-grid-item>购买力：{{ account.power }}</i-grid-item>
+        <i-grid-item>总资产：{{ account.total_assets }}</i-grid-item>
+        <i-grid-item>现金：{{ account.cash }}</i-grid-item>
+    </i-grid>
+    <i-grid>
+        <i-grid-item>市值：{{ account.market_val }}</i-grid-item>
+        <i-grid-item>冻结资金：{{ account.frozen_cash }}</i-grid-item>
+        <i-grid-item>可提现金：{{ account.avl_withdrawal_cash }}</i-grid-item>
+    </i-grid>
+    <i-tab-bar current="{{ tab_bar }}" fixed="true">
+        <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage_fill" title="Home"></i-tab-bar-item>
+        <i-tab-bar-item key="remind" icon="remind" current-icon="remind_fill" count="3" title="Notice"></i-tab-bar-item>
+        <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" dot title="My"></i-tab-bar-item>
+    </i-tab-bar>
+</template>
+
+<script>
+    import wepy from '@wepy/core'
+    wepy.page({
+        data: {
+            account: {
+                power: "1.0",
+                total_assets: "2.0",
+                cash: "3.0",
+                market_val: "4.0",
+                frozen_cash: "0.0",
+                avl_withdrawal_cash: "0.0"
+            },
+            tabs: 'HK',
+            tab_bar: 'mine'
+        },
+        methods: {
+            handleChange ({ detail }) {
+                this.account = {
+                    power:"1.1", 
+                    total_assets:"2.1", 
+                    cash: "3.1",
+                    market_val: "4.1",
+                    frozen_cash: "0.0",
+                    avl_withdrawal_cash: "0.0"
+                }
+            }
+        }
+    });
+</script>
+
+<config>
+{
+    navigationBarTitleText: '我的账户',
+    usingComponents: {
+        "i-grid": "../components/iview-weapp/grid/index",
+        "i-grid-item": "../components/iview-weapp/grid-item/index",
+        "i-grid-icon": "../components/iview-weapp/grid-icon/index",
+        "i-grid-label": "../components/iview-weapp/grid-label/index",
+        "i-tabs": "../components/iview-weapp/tabs/index",
+        "i-tab": "../components/iview-weapp/tab/index",
+        "i-tab-bar": "../components/iview-weapp/tab-bar/index",
+        "i-tab-bar-item": "../components/iview-weapp/tab-bar-item/index"
+    }
+}
+</config>
